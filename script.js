@@ -511,6 +511,83 @@ console.log(
     'color: #8b5cf6; font-size: 14px; font-weight: 500;'
 );
 
+
+// ===== RESPONSIVE HANDLER =====
+function handleResponsiveChanges() {
+    const width = window.innerWidth;
+    
+    // Disable 3D card effects on mobile
+    if (heroCard && width <= 768) {
+        heroCard.style.transform = '';
+        heroCard.removeEventListener('mousemove', handle3DCard);
+    }
+    
+    // Adjust navigation for different screen sizes
+    if (width > 1024) {
+        if (mobileMenu && mobileMenu.classList.contains('active')) {
+            mobileMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // Adjust animations for mobile
+    if (width <= 768) {
+        // Reduce animation complexity on mobile
+        document.querySelectorAll('.gradient-orb, .shape').forEach(el => {
+            el.style.animation = 'none';
+        });
+    }
+}
+
+// Store the 3D card handler reference
+function handle3DCard(e) {
+    if (window.innerWidth > 768) {
+        const rect = heroCard.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        heroCard.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(30px)`;
+    }
+}
+
+// Call on load and resize
+window.addEventListener('load', handleResponsiveChanges);
+window.addEventListener('resize', throttle(handleResponsiveChanges, 250));
+
+// ===== TOUCH DEVICE OPTIMIZATION =====
+function isTouchDevice() {
+    return (('ontouchstart' in window) ||
+            (navigator.maxTouchPoints > 0) ||
+            (navigator.msMaxTouchPoints > 0));
+}
+
+if (isTouchDevice()) {
+    document.body.classList.add('touch-device');
+    
+    // Disable hover effects on touch devices
+    const hoverElements = document.querySelectorAll('.skill-card, .project-card, .contact-card');
+    hoverElements.forEach(el => {
+        el.addEventListener('touchstart', function() {
+            this.classList.add('touch-active');
+        });
+        el.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.classList.remove('touch-active');
+            }, 300);
+        });
+    });
+}
+
+
+
+
 // ===== EXPORT FUNCTIONS (if using modules) =====
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
