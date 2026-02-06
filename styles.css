@@ -1389,7 +1389,7 @@ button {
 
 .project-links {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .project-link-btn {
