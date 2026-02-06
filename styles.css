@@ -1133,7 +1133,7 @@ button {
 .image-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 1.1;
+    aspect-ratio: 3/4;
     border-radius: var(--radius-xl);
     background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
     padding: 4px;
