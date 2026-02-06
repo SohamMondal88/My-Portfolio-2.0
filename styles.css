@@ -1370,6 +1370,7 @@ button {
 
 .project-card:hover .project-icon {
     transform: scale(1.2) rotate(5deg);
+    display: none;
 }
 
 .project-overlay {
