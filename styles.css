@@ -2723,3 +2723,37 @@ button {
         display: none !important;
     }
 }
+
+
+
+
+
+
+/* ===== TOUCH DEVICE STYLES ===== */
+.touch-device .skill-card:hover,
+.touch-device .project-card:hover,
+.touch-device .contact-card:hover {
+    transform: none;
+}
+
+.touch-device .skill-card.touch-active,
+.touch-device .project-card.touch-active,
+.touch-device .contact-card.touch-active {
+    transform: scale(0.98);
+}
+
+/* Improve touch targets */
+@media (max-width: 768px) {
+    a, button, .btn, .nav-link {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .mobile-nav-link {
+        padding: 1rem;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
