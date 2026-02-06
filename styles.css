@@ -639,7 +639,7 @@ button {
     animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
 }
 
-.title-line {
+.hero-title .title-line {
     display: block;
     font-size: 0.4em;
     color: var(--text-secondary);
@@ -1039,7 +1039,7 @@ button {
     margin-bottom: 1.5rem;
 }
 
-.title-line {
+.section-title .title-line {
     color: var(--text-secondary);
 }
 
@@ -1133,7 +1133,7 @@ button {
 .image-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 3/4;
+    aspect-ratio: 1.1;
     border-radius: var(--radius-xl);
     background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
     padding: 4px;
@@ -1982,7 +1982,6 @@ button {
     }
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
 /* ===== ENHANCED RESPONSIVE DESIGN ===== */
 
 /* Large Desktops (1440px+) */
@@ -2167,7 +2166,7 @@ button {
         margin-bottom: 1.5rem;
     }
     
-    .title-line {
+    .hero-title .title-line {
         font-size: 0.5em;
         margin-bottom: 0.25rem;
     }
@@ -2698,37 +2697,6 @@ button {
     }
 }
 
-/* ===== ACCESSIBILITY ===== */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
-/* ===== PRINT STYLES ===== */
-@media print {
-    .nav-wrapper,
-    .mobile-menu,
-    .scroll-to-top,
-    .cursor,
-    .cursor-follower,
-    .bg-animation,
-    .mesh-gradient,
-    .grain-overlay {
-        display: none !important;
-    }
-}
-
-
-
-
-
-
 /* ===== TOUCH DEVICE STYLES ===== */
 .touch-device .skill-card:hover,
 .touch-device .project-card:hover,
@@ -2755,5 +2723,31 @@ button {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .nav-wrapper,
+    .mobile-menu,
+    .scroll-to-top,
+    .cursor,
+    .cursor-follower,
+    .bg-animation,
+    .mesh-gradient,
+    .grain-overlay {
+        display: none !important;
     }
 }
