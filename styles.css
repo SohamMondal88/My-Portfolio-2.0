@@ -1173,7 +1173,7 @@ button {
     position: relative;
     width: 100%;
     max-width: 450px;
-    aspect-ratio: 3/4;
+    aspect-ratio: auto;
     border-radius: var(--radius-xl);
     background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
     padding: 6px;
