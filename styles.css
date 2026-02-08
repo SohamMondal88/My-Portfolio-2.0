@@ -1,6 +1,6 @@
 /* ============================================
-   ENHANCED PORTFOLIO STYLESHEET
-   A sophisticated, professional design system
+   ENHANCED PORTFOLIO STYLESHEET - FINAL VERSION
+   Perfect responsive design with mobile-first approach
    ============================================ */
 
 /* ===== CSS VARIABLES & DESIGN TOKENS ===== */
@@ -1013,34 +1013,6 @@ button {
 }
 
 /* ===== SECTION HEADERS ===== */
-
-
-
-.freelance-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    margin-bottom: 16px;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #14b8a6;
-    background: rgba(20, 184, 166, 0.1);
-    border: 1px solid rgba(20, 184, 166, 0.3);
-    backdrop-filter: blur(8px);
-    letter-spacing: 0.3px;
-}
-
-.freelance-badge i {
-    font-size: 0.85rem;
-}
-
-
-
-
-
-
 .section-header {
     margin-bottom: 4rem;
 }
@@ -1084,6 +1056,40 @@ button {
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.8;
+}
+
+/* ===== FREELANCE BADGE (SKILLS SECTION) ===== */
+.freelance-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(20, 184, 166, 0.1);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    backdrop-filter: blur(8px);
+    letter-spacing: 0.05em;
+}
+
+.freelance-badge i {
+    font-size: 1rem;
+}
+
+/* ===== SKILLS FOOTER ===== */
+.skills-footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
 /* ===== ABOUT SECTION ===== */
@@ -1154,23 +1160,39 @@ button {
     line-height: 1.7;
 }
 
+/* ===== ABOUT IMAGE - FIXED ===== */
 .about-image {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .image-wrapper {
     position: relative;
     width: 100%;
+    max-width: 450px;
     aspect-ratio: 3/4;
     border-radius: var(--radius-xl);
     background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-    padding: 4px;
+    padding: 6px;
+    margin: 0 auto;
 }
 
 .image-decoration {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
     background: var(--bg-primary);
+}
+
+.image-decoration img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: var(--radius-xl);
 }
 
@@ -1187,6 +1209,7 @@ button {
     justify-content: center;
     box-shadow: var(--shadow-xl), var(--glow-secondary);
     animation: float 3s ease-in-out infinite;
+    z-index: 10;
 }
 
 @keyframes float {
@@ -1339,7 +1362,6 @@ button {
     width: 0;
     box-shadow: 0 0 10px var(--color-primary);
 }
-
 
 /* ===== PROJECTS SECTION ===== */
 .projects {
@@ -2011,17 +2033,45 @@ button {
     }
 }
 
-/* ===== ENHANCED RESPONSIVE DESIGN ===== */
+/* ===== MOBILE-FIRST RESPONSIVE DESIGN ===== */
 
-/* ============================================
-   ENHANCED PORTFOLIO STYLESHEET - RESPONSIVE FIXES
-   ============================================ */
+/* Large Desktops (1440px+) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1600px;
+    }
+    
+    .hero-title {
+        font-size: 6rem;
+    }
+    
+    .section-title {
+        font-size: 4.5rem;
+    }
+}
 
-/* ... (Keep all your existing CSS variables and base styles up to line 750) ... */
+/* Laptops & Small Desktops (1024px - 1199px) */
+@media (max-width: 1199px) {
+    .container {
+        max-width: 1000px;
+        padding: 0 1.5rem;
+    }
+    
+    .section-padding {
+        padding: 6rem 0;
+    }
+    
+    .hero-content {
+        gap: 3rem;
+    }
+    
+    .card-3d {
+        width: min(400px, 85vw);
+        height: min(500px, 60vh);
+    }
+}
 
-/* ===== RESPONSIVE DESIGN FIXES ===== */
-
-/* Tablets & Large Mobile (768px - 1023px) - IMPROVED */
+/* ===== TABLETS & MOBILE - IMAGE FIRST LAYOUT ===== */
 @media (max-width: 1023px) {
     html {
         font-size: 15px;
@@ -2036,6 +2086,7 @@ button {
         min-height: auto;
     }
     
+    /* HERO: Image First on Mobile */
     .hero-content {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -2043,13 +2094,34 @@ button {
         flex-direction: column;
     }
     
-    /* Make 3D card appear first on mobile */
     .hero-visual {
-        order: -1;
-        margin-bottom: 2rem;
+        order: -1; /* Image appears first */
+        margin-bottom: 1rem;
     }
     
-    .hero-text,
+    .hero-text {
+        order: 2; /* Text appears second */
+        text-align: center;
+    }
+    
+    /* ABOUT: Image First on Mobile */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .about-image {
+        order: -1; /* Image appears first */
+        max-width: 400px;
+        margin: 0 auto 2rem;
+    }
+    
+    .about-text {
+        order: 2; /* Text appears second */
+    }
+    
     .hero-subtitle,
     .hero-description,
     .hero-stats,
@@ -2062,6 +2134,7 @@ button {
     
     .hero-title {
         font-size: clamp(2.5rem, 8vw, 4rem);
+        text-align: center;
     }
     
     .hero-description {
@@ -2086,7 +2159,6 @@ button {
     .card-3d {
         width: min(380px, 90vw);
         height: min(480px, 55vh);
-        margin: 0 auto;
     }
     
     .card-face {
@@ -2098,26 +2170,8 @@ button {
         height: 140px;
     }
     
-    /* About section fixes */
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    /* Make about image appear first on mobile */
-    .about-image {
-        order: -1;
-        max-width: 400px;
-        margin: 0 auto 2rem;
-    }
-    
     .image-wrapper {
-        width: 100%;
-        aspect-ratio: 1;
         max-width: 400px;
-        margin: 0 auto;
     }
     
     .experience-badge {
@@ -2152,7 +2206,7 @@ button {
     }
 }
 
-/* Mobile Landscape & Small Tablets (640px - 767px) - IMPROVED */
+/* Mobile Landscape & Small Tablets (640px - 767px) */
 @media (max-width: 767px) {
     html {
         font-size: 14px;
@@ -2254,7 +2308,14 @@ button {
         padding: 0.4rem 0.8rem;
     }
     
-    /* About section improvements */
+    .section-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
     .about-image {
         max-width: 350px;
     }
@@ -2276,14 +2337,6 @@ button {
     
     .badge-text {
         font-size: 0.75rem;
-    }
-    
-    .section-title {
-        font-size: clamp(2rem, 8vw, 3rem);
-    }
-    
-    .section-subtitle {
-        font-size: 1rem;
     }
     
     .about-description {
@@ -2407,7 +2460,7 @@ button {
     }
 }
 
-/* Mobile Portrait (480px - 639px) - IMPROVED */
+/* Mobile Portrait (480px - 639px) */
 @media (max-width: 639px) {
     .hero-cta {
         width: 100%;
@@ -2424,7 +2477,6 @@ button {
         height: min(420px, 48vh);
     }
     
-    /* About section fixes */
     .about-image {
         max-width: 300px;
     }
@@ -2436,6 +2488,8 @@ button {
     .experience-badge {
         width: 90px;
         height: 90px;
+        bottom: -8px;
+        right: -8px;
     }
     
     .badge-number {
@@ -2452,11 +2506,11 @@ button {
     }
     
     .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
 }
 
-/* Small Mobile (< 480px) - IMPROVED */
+/* Small Mobile (< 480px) */
 @media (max-width: 479px) {
     html {
         font-size: 13px;
@@ -2527,18 +2581,6 @@ button {
         font-size: 0.9rem;
     }
     
-    .scroll-indicator {
-        gap: 0.75rem;
-    }
-    
-    .scroll-text {
-        font-size: 0.75rem;
-    }
-    
-    .scroll-line {
-        height: 50px;
-    }
-    
     .card-3d {
         width: min(300px, 96vw);
         height: min(400px, 46vh);
@@ -2574,7 +2616,6 @@ button {
         padding: 0.35rem 0.7rem;
     }
     
-    /* About section improvements */
     .about-image {
         max-width: 280px;
         margin: 0 auto 1.5rem;
@@ -2587,8 +2628,8 @@ button {
     .experience-badge {
         width: 80px;
         height: 80px;
-        bottom: -8px;
-        right: -8px;
+        bottom: -6px;
+        right: -6px;
     }
     
     .badge-number {
@@ -2701,10 +2742,6 @@ button {
         font-size: 0.85rem;
     }
     
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
     .contact-card {
         padding: 1.75rem 1.25rem;
     }
@@ -2758,7 +2795,6 @@ button {
         height: 44vh;
     }
     
-    /* About section fixes */
     .about-image {
         max-width: 250px;
     }
@@ -2778,107 +2814,6 @@ button {
     
     .section-title {
         font-size: 1.75rem;
-    }
-}
-
-/* ===== FIX FOR ABOUT IMAGE ===== */
-.about-image {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.image-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 450px;
-    aspect-ratio: 1;
-    border-radius: var(--radius-xl);
-    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-    padding: 6px;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-.image-decoration {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: var(--bg-primary);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-}
-
-.image-decoration img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--radius-xl);
-}
-
-/* ===== HAMBURGER MENU FIX ===== */
-/* Remove duplicate close button styles */
-.mobile-menu-close {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 44px;
-    height: 44px;
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    color: var(--text-primary);
-    transition: var(--transition-normal);
-    z-index: 1001;
-    cursor: pointer;
-}
-
-.mobile-menu-close:hover {
-    background: var(--color-primary);
-    transform: rotate(90deg);
-}
-
-/* Hide the original nav-toggle when mobile menu is open */
-.mobile-menu.active ~ .nav-wrapper .nav-toggle {
-    display: none;
-}
-
-/* ===== REORDER SECTIONS FOR MOBILE ===== */
-@media (max-width: 1023px) {
-    /* Hero section - card first, then text */
-    .hero-content {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .hero-visual {
-        order: -1;
-        margin-bottom: 3rem;
-    }
-    
-    .hero-text {
-        order: 2;
-    }
-    
-    /* About section - image first, then text */
-    .about-content {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .about-image {
-        order: -1;
-        margin-bottom: 3rem;
-    }
-    
-    .about-text {
-        order: 2;
     }
 }
 
