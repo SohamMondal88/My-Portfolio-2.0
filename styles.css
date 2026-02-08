@@ -1013,6 +1013,34 @@ button {
 }
 
 /* ===== SECTION HEADERS ===== */
+
+
+
+.freelance-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    margin-bottom: 16px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #14b8a6;
+    background: rgba(20, 184, 166, 0.1);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    backdrop-filter: blur(8px);
+    letter-spacing: 0.3px;
+}
+
+.freelance-badge i {
+    font-size: 0.85rem;
+}
+
+
+
+
+
+
 .section-header {
     margin-bottom: 4rem;
 }
@@ -1311,6 +1339,7 @@ button {
     width: 0;
     box-shadow: 0 0 10px var(--color-primary);
 }
+
 
 /* ===== PROJECTS SECTION ===== */
 .projects {
