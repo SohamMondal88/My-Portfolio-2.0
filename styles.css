@@ -1013,34 +1013,6 @@ button {
 }
 
 /* ===== SECTION HEADERS ===== */
-
-
-
-.freelance-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    margin-bottom: 16px;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #14b8a6;
-    background: rgba(20, 184, 166, 0.1);
-    border: 1px solid rgba(20, 184, 166, 0.3);
-    backdrop-filter: blur(8px);
-    letter-spacing: 0.3px;
-}
-
-.freelance-badge i {
-    font-size: 0.85rem;
-}
-
-
-
-
-
-
 .section-header {
     margin-bottom: 4rem;
 }
@@ -1339,7 +1311,6 @@ button {
     width: 0;
     box-shadow: 0 0 10px var(--color-primary);
 }
-
 
 /* ===== PROJECTS SECTION ===== */
 .projects {
@@ -2013,15 +1984,50 @@ button {
 
 /* ===== ENHANCED RESPONSIVE DESIGN ===== */
 
-/* ============================================
-   ENHANCED PORTFOLIO STYLESHEET - RESPONSIVE FIXES
-   ============================================ */
+/* Large Desktops (1440px+) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1600px;
+    }
+    
+    .hero-title {
+        font-size: 6rem;
+    }
+    
+    .section-title {
+        font-size: 4.5rem;
+    }
+}
 
-/* ... (Keep all your existing CSS variables and base styles up to line 750) ... */
+/* Standard Desktops (1200px - 1439px) */
+@media (max-width: 1439px) {
+    .container {
+        max-width: 1200px;
+    }
+}
 
-/* ===== RESPONSIVE DESIGN FIXES ===== */
+/* Laptops & Small Desktops (1024px - 1199px) */
+@media (max-width: 1199px) {
+    .container {
+        max-width: 1000px;
+        padding: 0 1.5rem;
+    }
+    
+    .section-padding {
+        padding: 6rem 0;
+    }
+    
+    .hero-content {
+        gap: 3rem;
+    }
+    
+    .card-3d {
+        width: min(400px, 85vw);
+        height: min(500px, 60vh);
+    }
+}
 
-/* Tablets & Large Mobile (768px - 1023px) - IMPROVED */
+/* Tablets & Large Mobile (768px - 1023px) */
 @media (max-width: 1023px) {
     html {
         font-size: 15px;
@@ -2039,14 +2045,6 @@ button {
     .hero-content {
         grid-template-columns: 1fr;
         gap: 3rem;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    /* Make 3D card appear first on mobile */
-    .hero-visual {
-        order: -1;
-        margin-bottom: 2rem;
     }
     
     .hero-text,
@@ -2086,7 +2084,6 @@ button {
     .card-3d {
         width: min(380px, 90vw);
         height: min(480px, 55vh);
-        margin: 0 auto;
     }
     
     .card-face {
@@ -2098,24 +2095,13 @@ button {
         height: 140px;
     }
     
-    /* About section fixes */
     .about-content {
         grid-template-columns: 1fr;
         gap: 3rem;
-        display: flex;
-        flex-direction: column;
     }
     
-    /* Make about image appear first on mobile */
     .about-image {
         order: -1;
-        max-width: 400px;
-        margin: 0 auto 2rem;
-    }
-    
-    .image-wrapper {
-        width: 100%;
-        aspect-ratio: 1;
         max-width: 400px;
         margin: 0 auto;
     }
@@ -2152,7 +2138,7 @@ button {
     }
 }
 
-/* Mobile Landscape & Small Tablets (640px - 767px) - IMPROVED */
+/* Mobile Landscape & Small Tablets (640px - 767px) */
 @media (max-width: 767px) {
     html {
         font-size: 14px;
@@ -2252,30 +2238,6 @@ button {
     .tech-pill {
         font-size: 0.75rem;
         padding: 0.4rem 0.8rem;
-    }
-    
-    /* About section improvements */
-    .about-image {
-        max-width: 350px;
-    }
-    
-    .image-wrapper {
-        max-width: 350px;
-    }
-    
-    .experience-badge {
-        width: 100px;
-        height: 100px;
-        bottom: -10px;
-        right: -10px;
-    }
-    
-    .badge-number {
-        font-size: 2rem;
-    }
-    
-    .badge-text {
-        font-size: 0.75rem;
     }
     
     .section-title {
@@ -2407,7 +2369,7 @@ button {
     }
 }
 
-/* Mobile Portrait (480px - 639px) - IMPROVED */
+/* Mobile Portrait (480px - 639px) */
 @media (max-width: 639px) {
     .hero-cta {
         width: 100%;
@@ -2424,24 +2386,6 @@ button {
         height: min(420px, 48vh);
     }
     
-    /* About section fixes */
-    .about-image {
-        max-width: 300px;
-    }
-    
-    .image-wrapper {
-        max-width: 300px;
-    }
-    
-    .experience-badge {
-        width: 90px;
-        height: 90px;
-    }
-    
-    .badge-number {
-        font-size: 1.75rem;
-    }
-    
     .skills-grid,
     .projects-grid {
         gap: 1.25rem;
@@ -2452,11 +2396,11 @@ button {
     }
     
     .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
 }
 
-/* Small Mobile (< 480px) - IMPROVED */
+/* Small Mobile (< 480px) */
 @media (max-width: 479px) {
     html {
         font-size: 13px;
@@ -2574,31 +2518,6 @@ button {
         padding: 0.35rem 0.7rem;
     }
     
-    /* About section improvements */
-    .about-image {
-        max-width: 280px;
-        margin: 0 auto 1.5rem;
-    }
-    
-    .image-wrapper {
-        max-width: 280px;
-    }
-    
-    .experience-badge {
-        width: 80px;
-        height: 80px;
-        bottom: -8px;
-        right: -8px;
-    }
-    
-    .badge-number {
-        font-size: 1.5rem;
-    }
-    
-    .badge-text {
-        font-size: 0.7rem;
-    }
-    
     .section-tag {
         font-size: 0.75rem;
         padding: 0.4rem 1rem;
@@ -2621,6 +2540,21 @@ button {
         width: 40px;
         height: 40px;
         font-size: 1rem;
+    }
+    
+    .experience-badge {
+        width: 100px;
+        height: 100px;
+        bottom: -10px;
+        right: -10px;
+    }
+    
+    .badge-number {
+        font-size: 2rem;
+    }
+    
+    .badge-text {
+        font-size: 0.75rem;
     }
     
     .skill-card-inner {
@@ -2701,10 +2635,6 @@ button {
         font-size: 0.85rem;
     }
     
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
     .contact-card {
         padding: 1.75rem 1.25rem;
     }
@@ -2758,127 +2688,12 @@ button {
         height: 44vh;
     }
     
-    /* About section fixes */
-    .about-image {
-        max-width: 250px;
-    }
-    
-    .image-wrapper {
-        max-width: 250px;
-    }
-    
-    .experience-badge {
-        width: 70px;
-        height: 70px;
-    }
-    
     .hero-title {
         font-size: 2rem;
     }
     
     .section-title {
         font-size: 1.75rem;
-    }
-}
-
-/* ===== FIX FOR ABOUT IMAGE ===== */
-.about-image {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.image-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 450px;
-    aspect-ratio: 1;
-    border-radius: var(--radius-xl);
-    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-    padding: 6px;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-.image-decoration {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: var(--bg-primary);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-}
-
-.image-decoration img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--radius-xl);
-}
-
-/* ===== HAMBURGER MENU FIX ===== */
-/* Remove duplicate close button styles */
-.mobile-menu-close {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 44px;
-    height: 44px;
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    color: var(--text-primary);
-    transition: var(--transition-normal);
-    z-index: 1001;
-    cursor: pointer;
-}
-
-.mobile-menu-close:hover {
-    background: var(--color-primary);
-    transform: rotate(90deg);
-}
-
-/* Hide the original nav-toggle when mobile menu is open */
-.mobile-menu.active ~ .nav-wrapper .nav-toggle {
-    display: none;
-}
-
-/* ===== REORDER SECTIONS FOR MOBILE ===== */
-@media (max-width: 1023px) {
-    /* Hero section - card first, then text */
-    .hero-content {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .hero-visual {
-        order: -1;
-        margin-bottom: 3rem;
-    }
-    
-    .hero-text {
-        order: 2;
-    }
-    
-    /* About section - image first, then text */
-    .about-content {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .about-image {
-        order: -1;
-        margin-bottom: 3rem;
-    }
-    
-    .about-text {
-        order: 2;
     }
 }
 
