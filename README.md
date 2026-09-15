@@ -2,7 +2,7 @@
 
 # Soham Mondal — Portfolio
 
-A responsive personal portfolio presenting my projects, experience, skills and contact details.
+A responsive personal portfolio presenting my projects, experience, skills and contact options.
 
 [![Live portfolio](https://img.shields.io/badge/Live_Portfolio-Visit-7C3AED?style=for-the-badge&logo=vercel&logoColor=white)](https://soham-mondal-portfolio.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-16A34A?style=for-the-badge)](LICENSE)
@@ -18,7 +18,7 @@ This repository powers my personal developer portfolio. It is designed as a fast
 - Responsive layout for mobile, tablet and desktop
 - Project, skills, experience and education sections
 - Smooth interactions and animated interface details
-- Direct links to deployed projects, GitHub, LinkedIn and email
+- Direct links to deployed projects, GitHub and LinkedIn
 - Downloadable résumé
 - Lightweight static architecture with no build step
 
@@ -62,7 +62,6 @@ Then visit `http://localhost:8000`.
 - [Portfolio](https://soham-mondal-portfolio.vercel.app/)
 - [LinkedIn](https://www.linkedin.com/in/sohammondal02/)
 - [GitHub](https://github.com/SohamMondal88)
-- [Email](mailto:02062006sm@gmail.com)
 
 ## License
 
